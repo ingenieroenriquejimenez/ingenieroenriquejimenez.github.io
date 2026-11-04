@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enrique Jiménez Vence | Analista de Requerimientos</title>
+<meta name="description" content="Ingeniero de Sistemas, especialista en Ingeniería de Software. Analista funcional y de requerimientos / Business Analyst con más de 5 años de experiencia. Disponible para trabajo remoto.">
+<meta property="og:title" content="Enrique Jiménez Vence | Analista de Requerimientos / Business Analyst">
+<meta property="og:description" content="Levantamiento, análisis, documentación y validación de requerimientos para proyectos de software y transformación digital.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #1a2230;
+    --muted: #5a6577;
+    --line: #e3e7ee;
+    --accent: #1f5fa8;
+    --accent-soft: #e8f0fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f141b;
+      --surface: #171e28;
+      --text: #e7ecf3;
+      --muted: #9aa6b8;
+      --line: #263142;
+      --accent: #6aa8ef;
+      --accent-soft: #1a2a3f;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
+  nav .brand { font-weight: 700; text-decoration: none; color: var(--text); white-space: nowrap; }
+  nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+  nav ul a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--accent); }
+
+  header.hero { padding: 72px 0 56px; }
+  .tag {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 18px;
+  }
+  h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.02em; }
+  .role { font-size: clamp(18px, 3vw, 22px); color: var(--muted); margin: 0 0 24px; font-weight: 500; }
+  .lead { max-width: 680px; font-size: 17px; margin: 0 0 28px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 11px 20px; border-radius: 8px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { color: var(--accent); }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 44px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .stat b { display: block; font-size: 28px; color: var(--accent); line-height: 1.2; }
+  .stat span { font-size: 14px; color: var(--muted); }
+
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 26px; margin: 0 0 24px; letter-spacing: -0.01em; }
+  h3 { font-size: 17px; margin: 0; }
+
+  .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  .card h3 { margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 13.5px; padding: 5px 11px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--text);
+  }
+
+  .project { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin-bottom: 16px; }
+  .project .head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .project .org { color: var(--muted); font-size: 15px; margin: 0 0 10px; }
+  .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .project .part { font-size: 14px; margin: 0 0 8px; }
+  .project .part b { color: var(--accent); }
+  .project ul { margin: 0; padding-left: 20px; }
+  .project li { margin-bottom: 4px; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li {
+    display: grid; grid-template-columns: 150px 1fr; gap: 16px;
+    padding: 12px 0; border-bottom: 1px dashed var(--line);
+  }
+  .timeline li:last-child { border-bottom: 0; }
+  .timeline .date { padding-top: 1px; }
+  .timeline p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+
+  .edu li { margin-bottom: 8px; }
+  .contact { text-align: center; padding: 56px 0 64px; }
+  .contact p { color: var(--muted); max-width: 560px; margin: 0 auto 24px; }
+  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 24px 0 32px; border-top: 1px solid var(--line); }
+
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+    header.hero { padding: 48px 0 40px; }
+    .stats { grid-template-columns: 1fr; }
+    .grid2 { grid-template-columns: 1fr; }
+    .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#inicio">Enrique Jiménez Vence</a>
+    <ul>
+      <li><a href="#perfil">Perfil</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <span class="tag">Disponible para trabajo remoto · Valledupar, Colombia</span>
+    <h1>Enrique Luis Jiménez Vence</h1>
+    <p class="role">Ingeniero Analista de Requerimientos / Business Analyst</p>
+    <p class="lead">Convierto necesidades de negocio en especificaciones claras, viables y listas para desarrollar. Hago de puente entre clientes, usuarios y equipos técnicos en proyectos de software y transformación digital.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:ingenriquejimenez@hotmail.com">Contactarme</a>
+      <a class="btn ghost" href="#proyectos">Ver proyectos</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+5 años</b><span>como analista funcional y de requerimientos</span></div>
+      <div class="stat"><b>+18 años</b><span>de experiencia en tecnología</span></div>
+      <div class="stat"><b>Scrum Master</b><span>certificado por CertiProf</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="perfil">
+  <div class="wrap">
+    <h2>Perfil profesional</h2>
+    <p>Ingeniero de Sistemas con especialización en Ingeniería de Software. He trabajado como analista funcional y de requerimientos en empresas de tecnología (Global EDB, Growdata) y en entidades públicas del orden nacional (Ministerio de Ambiente, Agencia Nacional de Hidrocarburos, Función Pública). Levanto, analizo, documento y valido requerimientos funcionales y no funcionales, y acompaño a los equipos de desarrollo y QA durante todo el proyecto.</p>
+    <div class="grid2" style="margin-top:24px">
+      <div class="card">
+        <h3>Ingeniería de requerimientos</h3>
+        <div class="chips">
+          <span class="chip">Requerimientos funcionales y no funcionales</span>
+          <span class="chip">Análisis de procesos de negocio</span>
+          <span class="chip">Historias de usuario</span>
+          <span class="chip">Criterios de aceptación</span>
+          <span class="chip">Casos de uso</span>
+          <span class="chip">Matrices de trazabilidad</span>
+          <span class="chip">Especificaciones funcionales</span>
+          <span class="chip">Casos de prueba y QA</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Metodologías</h3>
+        <div class="chips">
+          <span class="chip">Scrum</span>
+          <span class="chip">Agile</span>
+          <span class="chip">Enfoques híbridos</span>
+          <span class="chip">PMI</span>
+          <span class="chip">PRINCE2</span>
+          <span class="chip">Priorización de backlog</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Herramientas y tecnología</h3>
+        <div class="chips">
+          <span class="chip">Azure DevOps</span>
+          <span class="chip">Microsoft Azure</span>
+          <span class="chip">Microsoft 365</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">Oracle</span>
+          <span class="chip">SQL</span>
+          <span class="chip">CRM</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Competencias</h3>
+        <div class="chips">
+          <span class="chip">Comunicación asertiva</span>
+          <span class="chip">Pensamiento analítico</span>
+          <span class="chip">Orientación al detalle</span>
+          <span class="chip">Trabajo en equipo</span>
+          <span class="chip">Gestión de conflictos</span>
+          <span class="chip">Enfoque en cliente y negocio</span>
+          <span class="chip">Liderazgo de equipos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <h2>Proyectos recientes</h2>
+
+    <article class="project">
+      <div class="head"><h3>Sistema de Convocatorias</h3><span class="date">Ene 2026 – Ago 2026</span></div>
+      <p class="org">Ministerio de Ambiente y Desarrollo Sostenible · Analista Funcional y de Requerimientos</p>
+      <p class="part"><b>Participación:</b> levantamiento, análisis, documentación y validación</p>
+      <ul>
+        <li>Levanté y documenté los requerimientos funcionales y no funcionales de los sistemas de información asignados.</li>
+        <li>Elaboré y ejecuté los casos de prueba de aseguramiento de calidad del sistema.</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="head"><h3>Digitalización de procesos misionales</h3><span class="date">Mar 2025 – Jun 2025</span></div>
+      <p class="org">Agencia Nacional de Hidrocarburos – ANH · Analista Funcional y de Requerimientos</p>
+      <p class="part"><b>Participación:</b> levantamiento y análisis de procesos</p>
+      <ul>
+        <li>Analicé procesos misionales y los traduje en requerimientos para su digitalización y automatización, dentro de la estrategia de transformación digital para la transición energética.</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="head"><h3>Proyectos de software para clientes</h3><span class="date">Jun 2020 – Jul 2025</span></div>
+      <p class="org">Global EDB · Analista Funcional</p>
+      <p class="part"><b>Participación:</b> levantamiento, formalización, priorización y entrega</p>
+      <ul>
+        <li>Analicé procesos de negocio y levanté y formalicé requerimientos.</li>
+        <li>Prioricé y entregué requerimientos documentados, coordinando con todas las partes interesadas.</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="head"><h3>Análisis y diseño de software</h3><span class="date">Jul 2020 – Ene 2021</span></div>
+      <p class="org">Growdata S.A.S. · Analista de Requerimientos</p>
+      <p class="part"><b>Participación:</b> levantamiento, análisis, diseño y trazabilidad</p>
+      <ul>
+        <li>Diseñé la matriz de requerimientos funcionales y no funcionales y revisé estándares.</li>
+        <li>Construí y gestioné piezas de trabajo en Azure DevOps.</li>
+      </ul>
+    </article>
+
+    <article class="project">
+      <div class="head"><h3>Implementación CRM – Fase IV</h3><span class="date">Sep 2021 – Dic 2022</span></div>
+      <p class="org">Departamento Administrativo de la Función Pública · Ingeniero de Sistemas</p>
+      <ul>
+        <li>Apoyé la implementación del CRM en los procesos y dependencias de la entidad y el seguimiento técnico de sus metas.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <h2>Otra experiencia</h2>
+    <ul class="timeline">
+      <li><span class="date">Jul – Dic 2025</span><div><h3>Experto en Desarrollo Territorial</h3><p>Ministerio de Minas y Energía</p></div></li>
+      <li><span class="date">2025 – 2026</span><div><h3>Administrador de Sistemas</h3><p>Escuela Superior de Administración Pública – ESAP</p></div></li>
+      <li><span class="date">2024 – 2025</span><div><h3>Administrador Windows Server y Azure</h3><p>Grupo Kreato</p></div></li>
+      <li><span class="date">May – Dic 2023</span><div><h3>Ingeniero de Sistemas</h3><p>Agencia Nacional de Tierras</p></div></li>
+      <li><span class="date">2021 – 2022</span><div><h3>Ingeniero de Sistemas – Gestión documental</h3><p>Consejo Superior de la Judicatura, Valledupar</p></div></li>
+      <li><span class="date">2018 – 2020</span><div><h3>Gerente de Proyectos, Arquitecto de Soluciones y DBA</h3><p>Global EDB</p></div></li>
+      <li><span class="date">2020</span><div><h3>Ingeniero de Sistemas</h3><p>Corpocesar</p></div></li>
+      <li><span class="date">2013 – 2019</span><div><h3>Ingeniero de Sistemas</h3><p>Alcaldía de Valledupar</p></div></li>
+      <li><span class="date">2011 – 2017</span><div><h3>Docente e Instructor TIC</h3><p>Universidad de Santander UDES · SENA</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <h2>Formación y certificaciones</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Formación académica</h3>
+        <ul class="edu">
+          <li><b>Especialización en Ingeniería de Software</b><br>Universidad Popular del Cesar, 2022</li>
+          <li><b>Ingeniero de Sistemas</b><br>Universidad de Santander UDES, 2006</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Certificaciones y cursos</h3>
+        <ul class="edu">
+          <li><b>Scrum Master Foundations</b> – CertiProf, 2021</li>
+          <li><b>Seminario SECOP II</b> – Pontificia Universidad Javeriana, 2020</li>
+          <li><b>Ciudadano Digital</b> – MinTIC</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2>¿Trabajamos juntos?</h2>
+    <p>Busco proyectos remotos como analista de requerimientos, analista funcional o business analyst. Escríbeme y te comparto mi hoja de vida completa.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn primary" href="mailto:ingenriquejimenez@hotmail.com">ingenriquejimenez@hotmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Enrique Luis Jiménez Vence · Ingeniero de Sistemas · T.P. 20255-188856</footer>
+
+</body>
+</html>
