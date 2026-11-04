@@ -93,8 +93,82 @@
     background: var(--accent-soft); color: var(--text);
   }
 
+  /* Herramientas con icono + nombre */
+  .tech-label {
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); margin: 16px 0 8px;
+  }
+  .card h3 + .tech-label { margin-top: 2px; }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tool {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 500; line-height: 1.25;
+    padding: 8px 12px; border-radius: 10px;
+    background: var(--accent-soft); color: var(--text);
+    border: 1px solid var(--line);
+  }
+  .tool svg { width: 18px; height: 18px; flex: none; }
+  .tool .ic { color: var(--accent); }
+
   .project { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; margin-bottom: 16px; }
   .project .head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+  .project .titles { flex: 1; min-width: 0; }
+  .project .titles h3 + h3 { margin-top: 6px; }
+  /* Tarjeta con logo de fondo (reutilizable) */
+.project.con-fondo { position: relative; overflow: hidden; }
+.project.con-fondo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--fondo);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+}
+.project.con-fondo > * { position: relative; }
+
+  /* Banner de encabezado: Ingeniería de Requerimientos de Software */
+  .banner {
+    position: relative; overflow: hidden; color: #fff;
+    background-color: #0d2a4d;
+    /* Capa oscura azul encima de la foto para que el texto se lea bien */
+    background-image:
+      linear-gradient(90deg, rgba(8,26,50,.94) 0%, rgba(13,42,77,.82) 45%, rgba(31,95,168,.35) 100%),
+      url('Imagenes/requerimientos-de-software.jpg');
+    background-size: cover;
+    background-position: center 45%;
+    background-repeat: no-repeat;
+  }
+  .banner .wrap { position: relative; padding-top: 72px; padding-bottom: 72px; }
+  .banner-text { max-width: 600px; }
+  .banner .eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #cfe3fb; margin-bottom: 10px;
+  }
+  .banner h2 { font-size: clamp(26px, 4.6vw, 40px); line-height: 1.15; margin: 0 0 12px; color: #fff; text-wrap: balance; }
+  .banner p { max-width: 640px; margin: 0 0 24px; color: rgba(255,255,255,.88); font-size: 16.5px; }
+  .flujo { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; counter-reset: paso; }
+  .flujo li {
+    counter-increment: paso;
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 10px; font-size: 14px; font-weight: 600;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.28);
+  }
+  .flujo li::before {
+    content: counter(paso);
+    display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%;
+    background: #fff; color: #1f5fa8; font-size: 12px; font-weight: 800;
+  }
+  @media (max-width: 720px) {
+    .banner {
+      background-image:
+        linear-gradient(180deg, rgba(8,26,50,.9) 0%, rgba(13,42,77,.85) 100%),
+        url('Imagenes/requerimientos-de-software.jpg');
+    }
+    .banner .wrap { padding-top: 48px; padding-bottom: 48px; }
+  }
   .project .org { color: var(--muted); font-size: 15px; margin: 0 0 10px; }
   .date { font-size: 14px; color: var(--muted); white-space: nowrap; }
   .project .part { font-size: 14px; margin: 0 0 8px; }
@@ -140,12 +214,31 @@
   </div>
 </nav>
 
+<!-- Banner de encabezado -->
+<div class="banner" role="banner">
+  <div class="wrap">
+    <div class="banner-text">
+      <span class="eyebrow">Ingeniería de Requerimientos de Software</span>
+      <h2>Ingeniero de Requerimientos y QA</h2>
+      <p>Del problema de negocio a una especificación clara, trazable, documentada y validada, entraga para realizar el desarrollo y QA (pruebas) se ejecuten sin ambigüedades.</p>
+      <ol class="flujo">
+        <li>Levantamiento</li>
+        <li>Análisis</li>
+        <li>Especificación</li>
+        <li>Validación</li>
+        <li>Pruebas QA</li>
+        <li>Trazabilidad</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
 <header class="hero" id="inicio">
   <div class="wrap">
-    <span class="tag">Disponible para trabajo remoto · Valledupar, Colombia</span>
+    <span class="tag">Valledupar, Colombia</span>
     <h1>Enrique Luis Jiménez Vence</h1>
     <p class="role">Ingeniero Analista de Requerimientos / Business Analyst</p>
-    <p class="lead">Convierto necesidades de negocio en especificaciones claras, viables y listas para desarrollar. Hago de puente entre clientes, usuarios y equipos técnicos en proyectos de software y transformación digital.</p>
+    <p class="lead">Convierto necesidades de negocio en especificaciones claras, viables y listas para desarrollar. Hago enlaces entre los grupos, iniciando desde el negocio, Patrocinadores y Stakeholders, usuarios y equipos técnicos, QA, Gerente de Proyecto / Project Manager, todos estos que intervienen en los proyectos de software y transformación digital.</p>
     <div class="btns">
       <a class="btn primary" href="mailto:ingenriquejimenez@hotmail.com">Contactarme</a>
       <a class="btn ghost" href="#proyectos">Ver proyectos</a>
@@ -161,54 +254,187 @@
 <section id="perfil">
   <div class="wrap">
     <h2>Perfil profesional</h2>
-    <p>Ingeniero de Sistemas con especialización en Ingeniería de Software. He trabajado como analista funcional y de requerimientos en empresas de tecnología (Global EDB, Growdata) y en entidades públicas del orden nacional (Ministerio de Ambiente, Agencia Nacional de Hidrocarburos, Función Pública). Levanto, analizo, documento y valido requerimientos funcionales y no funcionales, y acompaño a los equipos de desarrollo y QA durante todo el proyecto.</p>
+    <p>Ingeniero de Sistemas con especialización en Ingeniería de Software y más de 5 años de experiencia como analista funcional y de requerimientos en proyectos de desarrollo de software y transformación digital, tanto en empresas de tecnología (Global EDB, Growdata) como en entidades públicas del orden nacional (Ministerio de Ambiente, Agencia Nacional de Hidrocarburos, Función Pública). Realizo levantamientos, análisis, documentación, así como validar requerimientos funcionales y no funcionales, actúo como enlace entre clientes, usuarios de negocio y equipos de desarrollo y QA. Certificado como Scrum Master, con experiencia en Scrum, Agile y enfoques híbridos con PMI, y en la gestión de requerimientos en Azure DevOps. Me enfoco en convertir necesidades ambiguas en especificaciones claras, viables y orientadas a ejecución.</p>
     <div class="grid2" style="margin-top:24px">
       <div class="card">
         <h3>Ingeniería de requerimientos</h3>
-        <div class="chips">
-          <span class="chip">Requerimientos funcionales y no funcionales</span>
-          <span class="chip">Análisis de procesos de negocio</span>
-          <span class="chip">Historias de usuario</span>
-          <span class="chip">Criterios de aceptación</span>
-          <span class="chip">Casos de uso</span>
-          <span class="chip">Matrices de trazabilidad</span>
-          <span class="chip">Especificaciones funcionales</span>
-          <span class="chip">Casos de prueba y QA</span>
+        <p class="tech-label">Levantamiento y análisis</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2.8h6V4"/><path d="M9 10h6M9 14h6M9 18h3"/></svg>
+            Requerimientos funcionales y no funcionales
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><rect x="14" y="3.5" width="6" height="5" rx="1"/><rect x="9" y="15.5" width="6" height="5" rx="1"/><path d="M7.5 6H14M17 8.5V12h-5v3.5"/></svg>
+            Análisis de procesos de negocio
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2.2"/><path d="M5.8 16c.6-1.8 1.8-2.8 3.2-2.8s2.6 1 3.2 2.8M14.5 9.5H18M14.5 13H18"/></svg>
+            Historias de usuario
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5.5" r="2"/><path d="M5 7.5v6M2.5 10h5M5 13.5l-2 4.5M5 13.5l2 4.5"/><ellipse cx="16.5" cy="12" rx="5.5" ry="3.5"/></svg>
+            Casos de uso
+          </span>
+        </div>
+
+        <p class="tech-label">Especificación y documentación</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
+            Especificaciones funcionales
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.5"/></svg>
+            Criterios de aceptación
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+            Matrices de trazabilidad
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+            Documentación con estándares
+          </span>
+        </div>
+
+        <p class="tech-label">Calidad</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg>
+            QA, Casos de Pruebas y Ejecución
+          </span>
         </div>
       </div>
       <div class="card">
         <h3>Metodologías</h3>
-        <div class="chips">
-          <span class="chip">Scrum</span>
-          <span class="chip">Agile</span>
-          <span class="chip">Enfoques híbridos</span>
-          <span class="chip">PMI</span>
-          <span class="chip">PRINCE2</span>
-          <span class="chip">Priorización de backlog</span>
+        <p class="tech-label">Marcos ágiles</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 3.5v5h-5"/><circle cx="12" cy="12" r="2"/></svg>
+            Scrum
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+            Agile
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h7M4 18h4"/><path d="M18 5v14M15 16l3 3 3-3"/></svg>
+            Priorización de backlog
+          </span>
+        </div>
+
+        <p class="tech-label">Gestión de proyectos</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M8 8h6M10 12h7M8 16h4" stroke-width="2.6"/></svg>
+            PMI
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+            PRINCE2
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l9 10h5M3 17h4l2.6-2.9M13.4 9.9 16 7h5"/><path d="M19 5l2 2-2 2M19 15l2 2-2 2"/></svg>
+            Enfoques híbridos
+          </span>
         </div>
       </div>
       <div class="card">
         <h3>Herramientas y tecnología</h3>
-        <div class="chips">
-          <span class="chip">Azure DevOps</span>
-          <span class="chip">Microsoft Azure</span>
-          <span class="chip">Microsoft 365</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">Oracle</span>
-          <span class="chip">SQL</span>
-          <span class="chip">CRM</span>
+
+        <p class="tech-label">Cloud y DevOps</p>
+        <div class="tools">
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#0078D4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.7-5.6"/><path d="M18.5 2.8v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.6"/><path d="M5.5 21.2v-4h4"/></svg>
+            Azure DevOps
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 2.5h5.2L7.9 21.5H2.2z" fill="#0089D6"/><path d="M15.2 7.6l6.6 13.9H10.4l4.6-3.4-3-5.6z" fill="#0078D4"/></svg>
+            Microsoft Azure
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="9.5" height="9.5" fill="#F25022"/><rect x="12.5" y="2" width="9.5" height="9.5" fill="#7FBA00"/><rect x="2" y="12.5" width="9.5" height="9.5" fill="#00A4EF"/><rect x="12.5" y="12.5" width="9.5" height="9.5" fill="#FFB900"/></svg>
+            Microsoft 365
+          </span>
+        </div>
+
+        <p class="tech-label">Bases de datos</p>
+        <div class="tools">
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#00758F" stroke-width="2.2"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13"/><path d="M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3" stroke="#F29111"/></svg>
+            MySQL
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#CC2927" stroke-width="2.2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M3 14.8h18M9.5 9.5V20"/></svg>
+            SQL
+          </span>
+        </div>
+
+        <p class="tech-label">Gestión y modelado</p>
+        <div class="tools">
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 11.3 12.7 2.8a1 1 0 0 0-1.4 0L2.8 11.3a1 1 0 0 0 0 1.4l8.5 8.5a1 1 0 0 0 1.4 0l8.5-8.5a1 1 0 0 0 0-1.4zM12 15.6 8.4 12 12 8.4l3.6 3.6z" fill="#2684FF"/></svg>
+            Jira
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#6B4FBB" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="7.5" r="2.6"/><path d="M17.5 13.2c2.4.3 4 2.2 4 4.8"/></svg>
+            CRM
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#E8452C" stroke-width="2" stroke-linejoin="round"><circle cx="4" cy="12" r="2.4"/><rect x="9" y="8.8" width="6.4" height="6.4" rx="1.6"/><path d="M20 8.6l3.4 3.4-3.4 3.4-3.4-3.4z"/><path d="M6.4 12H9M15.4 12h1.2"/></svg>
+            Bizagi
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#F08705"/><rect x="9" y="3.8" width="6" height="5" rx="1" fill="#fff"/><rect x="3.8" y="15.2" width="6" height="5" rx="1" fill="#fff"/><rect x="14.2" y="15.2" width="6" height="5" rx="1" fill="#fff"/><path d="M12 8.8v3.2M6.8 15.2V12h10.4v3.2" fill="none" stroke="#fff" stroke-width="1.6"/></svg>
+            draw.io
+          </span>
+          <span class="tool">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#1976D2" stroke-width="2" stroke-linejoin="round"><path d="M2.5 5.5C5.2 4 8.9 4 12 6.2 15.1 4 18.8 4 21.5 5.5V19.5c-2.7-1.5-6.4-1.5-9.5.7-3.1-2.2-6.8-2.2-9.5-.7z"/><path d="M12 6.2v14"/></svg>
+            Wiki
+          </span>
         </div>
       </div>
       <div class="card">
         <h3>Competencias</h3>
-        <div class="chips">
-          <span class="chip">Comunicación asertiva</span>
-          <span class="chip">Pensamiento analítico</span>
-          <span class="chip">Orientación al detalle</span>
-          <span class="chip">Trabajo en equipo</span>
-          <span class="chip">Gestión de conflictos</span>
-          <span class="chip">Enfoque en cliente y negocio</span>
-          <span class="chip">Liderazgo de equipos</span>
+        <p class="tech-label">Personas y liderazgo</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+            Comunicación asertiva
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="7.5" r="2.6"/><path d="M17.5 13.2c2.4.3 4 2.2 4 4.8"/></svg>
+            Trabajo en equipo
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></svg>
+            Gestión de conflictos
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg>
+            Liderazgo de equipos
+          </span>
+        </div>
+
+        <p class="tech-label">Enfoque y calidad</p>
+        <div class="tools">
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="7"/><path d="M15.5 15.5 21 21"/><path d="M7.5 12.5V11M10.5 12.5v-4M13.5 12.5v-2.5"/></svg>
+            Pensamiento analítico
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+            Orientación al detalle
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14.5 8 21l4-2 4 2-1-6.5"/></svg>
+            Calidad del producto
+          </span>
+          <span class="tool">
+            <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 13h18"/></svg>
+            Enfoque en cliente y negocio
+          </span>
         </div>
       </div>
     </div>
@@ -218,51 +444,70 @@
 <section id="proyectos">
   <div class="wrap">
     <h2>Proyectos recientes</h2>
-
-    <article class="project">
-      <div class="head"><h3>Sistema de Convocatorias</h3><span class="date">Ene 2026 – Ago 2026</span></div>
+   <article class="project con-fondo" style="--fondo: url('Imagenes/logo minambiente.png')">
+  <div class="head">
+    <div class="titles">
+      <h3>Sistema de Convocatorias para proyectos en territorios.</h3>
+          <h3>Actualización de la plataforma SIGTRA, Sistema de Información para la Gestión de Trámites Ambientales</h3>
+        </div>
+        <span class="date">Ene 2026 – Ago 2026</span>
+      </div>
       <p class="org">Ministerio de Ambiente y Desarrollo Sostenible · Analista Funcional y de Requerimientos</p>
       <p class="part"><b>Participación:</b> levantamiento, análisis, documentación y validación</p>
       <ul>
-        <li>Levanté y documenté los requerimientos funcionales y no funcionales de los sistemas de información asignados.</li>
-        <li>Elaboré y ejecuté los casos de prueba de aseguramiento de calidad del sistema.</li>
+        <li>Levanté y documenté los requerimientos funcionales y no funcionales de los sistemas de información asignados como la WIKI.</li>
+        <li>Elaboré y ejecuté los casos de prueba de aseguramiento de calidad del Sistema de Convocatorias.</li>
+        <li>Trabajé según el procedimiento institucional de desarrollo y mantenimiento de sistemas de información (P-A-GTI-03).</li>
       </ul>
     </article>
 
-    <article class="project">
-      <div class="head"><h3>Digitalización de procesos misionales</h3><span class="date">Mar 2025 – Jun 2025</span></div>
+    <article class="project con-fondo" style="--fondo: url('Imagenes/ANH_logo.jpg')">
+      <div class="head"><h3>Desarrollo, implementación y ampliación de los sistemas de información: Certificados de Ubicación Espacial CUBES, Gestor de Contratos de Hidrocarburos - GECOH, Informes Contractuales y Regulatorios, Derechos Económicos, Gestión de Operación en Pozo GOP (Formas Ministeriales), Recaudo y Cartera (Derechos Económicos y Regalías), Sistema de Información Geográfico, Liquidación y Distribución de Regalías, Gestión de Recursos y Reservas</h3><span class="date">Mar 2025 – Jun 2025</span></div>
       <p class="org">Agencia Nacional de Hidrocarburos – ANH · Analista Funcional y de Requerimientos</p>
       <p class="part"><b>Participación:</b> levantamiento y análisis de procesos</p>
       <ul>
         <li>Analicé procesos misionales y los traduje en requerimientos para su digitalización y automatización, dentro de la estrategia de transformación digital para la transición energética.</li>
+        <li>Proyecto de transformación digital con varias áreas y entidades del convenio como interesadas.</li>
+        <li>Actualización de procesos con modelamientos BPMN.</li>
       </ul>
     </article>
 
-    <article class="project">
-      <div class="head"><h3>Proyectos de software para clientes</h3><span class="date">Jun 2020 – Jul 2025</span></div>
+    <article class="project con-fondo" style="--fondo: url('Imagenes/logo globalEDB.png')">
+      <div class="head">
+        <div class="titles">
+          <h3>Modernización de identidad digital con acceso unificado, MFA y gobierno de privilegios bajo modelo Zero Trust.</h3>
+          <h3>Diseño y desarrollo de aplicación para la gestión de historias clínicas y agendamiento de turnos mediante el ecosistema de Microsoft 365 (Power Platform, Teams y Outlook).</h3>
+        </div>
+        <span class="date">Jun 2020 – Jul 2025</span>
+      </div>
       <p class="org">Global EDB · Analista Funcional</p>
       <p class="part"><b>Participación:</b> levantamiento, formalización, priorización y entrega</p>
       <ul>
-        <li>Analicé procesos de negocio y levanté y formalicé requerimientos.</li>
-        <li>Prioricé y entregué requerimientos documentados, coordinando con todas las partes interesadas.</li>
+        <li>Analicé procesos de negocio y levanté y formalicé los requerimientos de los proyectos asignados.</li>
+        <li>Prioricé y entregué requerimientos documentados al equipo de desarrollo.</li>
+        <li>Líder para el cumplimiento de los objetivos de los proyectos, coordinando con todas las partes interesadas.</li>
+        <li>Gestión de Backlog en la plataforma Azure DevOps.</li>
       </ul>
     </article>
 
-    <article class="project">
-      <div class="head"><h3>Análisis y diseño de software</h3><span class="date">Jul 2020 – Ene 2021</span></div>
+    <article class="project con-fondo" style="--fondo: url('Imagenes/logo growdata.png')">
+      <div class="head"><h3>Actualización y creación de nuevos módulos en la plataforma de la División de Sanidad Militar DIGSA (contrato No. 119 – 2020).</h3><span class="date">Jul 2020 – Ene 2021</span></div>
       <p class="org">Growdata S.A.S. · Analista de Requerimientos</p>
       <p class="part"><b>Participación:</b> levantamiento, análisis, diseño y trazabilidad</p>
       <ul>
+        <li>Levanté información y realicé el análisis y diseño de software.</li>
         <li>Diseñé la matriz de requerimientos funcionales y no funcionales y revisé estándares.</li>
-        <li>Construí y gestioné piezas de trabajo en Azure DevOps.</li>
+        <li>Construí y gestioné piezas de trabajo en la plataforma Azure DevOps.</li>
       </ul>
     </article>
 
-    <article class="project">
+    <article class="project con-fondo" style="--fondo: url('Imagenes/logo funcion publica.png')">
       <div class="head"><h3>Implementación CRM – Fase IV</h3><span class="date">Sep 2021 – Dic 2022</span></div>
       <p class="org">Departamento Administrativo de la Función Pública · Ingeniero de Sistemas</p>
       <ul>
-        <li>Apoyé la implementación del CRM en los procesos y dependencias de la entidad y el seguimiento técnico de sus metas.</li>
+        <li>Hice seguimiento técnico al cumplimiento de metas y a la ejecución de recursos del producto "Servicio de información de gestión pública".</li>
+        <li>Apoyé la implementación de una plataforma empresarial con múltiples dependencias como stakeholders.</li>
+        <li>Responsable de la entrega a satisfacción, seguimiento a la integración y puesta en marcha en producción.</li>
       </ul>
     </article>
   </div>
@@ -275,7 +520,7 @@
       <li><span class="date">Jul – Dic 2025</span><div><h3>Experto en Desarrollo Territorial</h3><p>Ministerio de Minas y Energía</p></div></li>
       <li><span class="date">2025 – 2026</span><div><h3>Administrador de Sistemas</h3><p>Escuela Superior de Administración Pública – ESAP</p></div></li>
       <li><span class="date">2024 – 2025</span><div><h3>Administrador Windows Server y Azure</h3><p>Grupo Kreato</p></div></li>
-      <li><span class="date">May – Dic 2023</span><div><h3>Ingeniero de Sistemas</h3><p>Agencia Nacional de Tierras</p></div></li>
+      <li><span class="date">May – Dic 2023</span><div><h3>Administrador de Sistemas</h3><p>Agencia Nacional de Tierras</p></div></li>
       <li><span class="date">2021 – 2022</span><div><h3>Ingeniero de Sistemas – Gestión documental</h3><p>Consejo Superior de la Judicatura, Valledupar</p></div></li>
       <li><span class="date">2018 – 2020</span><div><h3>Gerente de Proyectos, Arquitecto de Soluciones y DBA</h3><p>Global EDB</p></div></li>
       <li><span class="date">2020</span><div><h3>Ingeniero de Sistemas</h3><p>Corpocesar</p></div></li>
@@ -318,7 +563,7 @@
   </div>
 </section>
 
-<footer>© 2026 Enrique Luis Jiménez Vence · Ingeniero de Sistemas · T.P. 20255-188856</footer>
+<footer>© 2026 Enrique Luis Jiménez Vence · Ingeniero de Sistemas · Movil 3508752238</footer>
 
 </body>
 </html>
